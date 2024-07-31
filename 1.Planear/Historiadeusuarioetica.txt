@@ -7,37 +7,78 @@ En esta Historia va a estar contenido las siguientes caracteristicas:
 1. Nombre del proyecto: MAKUMBASPORTS
 2. Proceso: compra de menbresias
 El proceso principal de este proyecto es la transacción de compra
-de membresías, que se dividirá en tres paquetes:
+de membresías,
+por lo tanto se requiere un proceso
+transaccional que permita la compra de diferentes
+membresias  que se dividirá en tres paquetes:
 
-1. Paquete Basico
-2. Paquete Estandar
-3. Paquete Premium
+1. Paquete Basico    $ 60.000
+2. Paquete Estandar  $ 80.000
+3. Paquete Premium   $105.000
+
+con estas membresias los clientes podran acceder 
+a diferentes servicios del gimnasio.
 
 3. Actores: Cliente y administrador
 
-Cliente: Persona que compra la membresía para acceder a los servicios del gimnasio.
-Administrador: Persona que gestiona el sistema de membresías y administra el gimnasio.
+-- Clientes
+Nuevos Clientes: Personas interesadas en adquirir una nueva membresía.
+Clientes Actuales: Miembros que ya están inscritos y pueden estar interesados en renovar, actualizar o cambiar su plan de membresía.
+
+-- Personal del Gimnasio
+
+Asesores de Ventas: Personal encargado de promocionar y vender las membresías, explicando los beneficios, costos y opciones disponibles.
+Recepcionistas: Pueden asistir en el proceso de inscripción y gestionar las consultas iniciales de los clientes.
+
+-- Administrador
+Es el actor que va agestionar la Plataforma de Inscripción en Línea: Software que permite la compra, renovación o actualización de membresías a través de una 
+plataforma digital.
+
+tambien tendra en cuenta el sistema que facilita los pagos en línea o en el lugar, incluyendo la gestión de cuotas, descuentos y métodos de pago.
 
 4. Producto/servicio : 
 
 Producto: Membresías de acceso al gimnasio.
 
-5. Escenario Actual
+5. Escenario Actual en MAKUMBASPORTS:
 
-En el escenario actual, los clientes tienen que visitar el gimnasio físicamente 
-para comprar una membresía. Este proceso puede ser ineficiente y engorroso,
-tanto para los clientes como para el personal administrativo. 
-No hay un sistema automatizado que gestione las transacciones 
-y el seguimiento de las membresías.
+-- Compra de Membresías en Línea
+
+1. El cliente visita la página web del gimnasio y consulta las opciones de membresía.
+
+El cliente accede al sitio web del gimnasio MAKUMBASPORTS y navega a la sección de membresías, donde puede revisar las diferentes opciones disponibles.
+
+2. El cliente selecciona una membresía de su interés.
+El cliente explora las opciones de membresía (duración, beneficios, precios, promociones) y elige la que mejor se ajuste a sus necesidades.
+
+3. El cliente ingresa su información y procede al pago.
+
+El cliente completa un formulario en línea con su información personal (nombre, correo electrónico, dirección, etc.) y selecciona su método de pago preferido (tarjeta de crédito, PayPal, etc.).
+
+4. El sistema confirma la compra y registra la membresía: 
+
+Una vez completado el pago, el sistema del gimnasio registra automáticamente la nueva membresía en la base de datos, y el cliente recibe una confirmación por correo electrónico con los detalles de su compra.
+
+5. El sistema genera y envía el acceso al cliente:
+
+El cliente recibe un correo electrónico con su credencial digital, código QR, o instrucciones para acceder a las instalaciones y/o a la aplicación móvil del gimnasio. También puede recibir un enlace para configurar su cuenta y gestionar su membresía.
+
+6. El cliente confirma su cuenta y finaliza el proceso:
+
+El cliente accede a su cuenta en línea a través del sitio web o la aplicación, confirma los detalles de su membresía, y puede comenzar a utilizar los servicios del gimnasio según lo contratado.
+
+
+
 
 6. Escenario Objectivo
 
+Objetivo General:
+Implementar un sistema de información integral 
+que permita gestionar de manera eficiente 
+el proceso completo de venta de membresías,
+fomentar la fidelización de clientes, 
+administrar los productos y servicios del gimnasio, garantizar la transaccionalidad segura y fluida, y facilitar la administración institucional de MAKUMBASPORTS.
 
-El objetivo es implementar un sistema en línea:
-
-para la compra y gestión de membresías, que permita a los clientes registrarse 
-y pagar por las membresías desde la comodidad de su hogar. El sistema también debe permitir
-al administrador gestionar las membresías y mantener un seguimiento de los pagos.
 
 7. Problematica:
 
