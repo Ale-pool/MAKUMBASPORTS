@@ -121,6 +121,3 @@ y actualizar pagos.
 - Sistema para implementar y gestionar promociones y descuentos de manera efectiva.
 - Módulo para la gestión de horarios de clases y disponibilidad de entrenadores, con opción de actualización en tiempo real.
 
-- TENGO QUE AFUSTAR TODO LO DE LOS ECENARIOS EN DRAW.iO 
-- HACER DIAGRAMA DE ECENARIO ACTUAL 
-- HACER DIAGRAMA DE ECENARIO A CONVERTIR A MEJORAR 
