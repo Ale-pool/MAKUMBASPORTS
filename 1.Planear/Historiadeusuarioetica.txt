@@ -121,3 +121,113 @@ y actualizar pagos.
 - Sistema para implementar y gestionar promociones y descuentos de manera efectiva.
 - Módulo para la gestión de horarios de clases y disponibilidad de entrenadores, con opción de actualización en tiempo real.
 
+11- requerimientos:
+
+ El gimnasio makumbasports requiere un sistema de información transaccional que le permita gestionar la compra de membresías de diferentes
+  usuarios que desean acceder a un gimnasio,  estas membresías le permitirá a los usuarios identificar sus necesidades para aso poder acceder 
+  a la membresía de su elección, el sistema requiere gestionar la información relacionada con la ubicación del gimnasio
+   (Globalización del proceso) -(Pais- Departamento - ciudad), gestionar la información relacionada con el proyecto 
+   - empresa (gimnasios, Sedes, Empleados), gestionar la información del cliente(Fidelización- cliente) 
+   ( -consumidor, Tipo Documento - Tipo de genero), a su vez tenemos que gestionar la información del producto (masificación de un producto)
+    (Membresia, Tipo de membresia.) gestionar el proceso de pedido- compra de la membresía  [Control Transaccion] 
+ - (Factura, Detalle Factura, Estado Factura).
+ 6
+- Tener encuenta la misión y la visión de nuestro proyecto:
+
+Mision: el gymnasio MAKUMBASPORTS se encarga de generar confincialidad y confianza a los usuarios de sus gimnasio con 
+el objectivo de vender ciertas membresias a los que este grupo pueda acceder, en base a la membresias el usurio tendra 
+ciertos beneficios por ende el usuario tendra la posibilidad de escoger su membresia en base a sus gustos y disponibilidades.
+
+Visión(Futuro):
+
+1. Cliente
+Descripción:
+Representa a la persona que adquiere la membresía.
+Atributos:
+Nombre
+Apellido
+Dirección
+Correo electrónico
+Número de teléfono
+Información de pago (opcional, dependiendo de cómo se gestione)
+Historial de membresías
+2. Membresía
+Descripción:
+Representa el producto adquirido, que otorga acceso a los servicios del gimnasio.
+Atributos:
+Tipo de membresía (Mensual, Anual, Premium, Básica, etc.)
+Fecha de inicio
+Fecha de expiración
+Precio
+Servicios incluidos (acceso a clases, uso de instalaciones, entrenadores personales)
+Estado (Activa, Vencida, Cancelada)
+Opciones de renovación
+3. Producto o Servicio
+Descripción:
+Representa los diferentes productos o servicios adicionales que pueden ser adquiridos junto con la membresía.
+Atributos:
+Nombre del producto o servicio (Entrenador personal, Clases especiales, Acceso a spa, etc.)
+Descripción
+Precio
+Disponibilidad
+4. Transacción
+Descripción:
+Representa el proceso de pago y adquisición de una membresía o producto.
+Atributos:
+ID de la transacción
+Cliente asociado
+Fecha de la transacción
+Método de pago (tarjeta de crédito, PayPal, transferencia bancaria)
+Monto total
+Estado de la transacción (Completada, Pendiente, Fallida)
+5. Pago
+Descripción:
+Entidad que registra los detalles específicos del pago realizado por el cliente.
+Atributos:
+ID de pago
+Monto
+Fecha de pago
+Método de pago
+Estado (Pagado, Pendiente, Rechazado)
+Referencia de transacción
+6. Contrato o Acuerdo
+Descripción:
+Representa el acuerdo formal entre el cliente y el gimnasio respecto a la membresía adquirida.
+Atributos:
+ID de contrato
+Cliente asociado
+Fecha de firma
+Términos y condiciones
+Duración del contrato
+Firma (digital o física)
+7. Empleado o Asesor de Ventas
+Descripción:
+Representa al personal del gimnasio que facilita la venta de membresías y ofrece soporte a los clientes.
+Atributos:
+Nombre
+Apellido
+ID de empleado
+Rol (Asesor de ventas, Gerente de ventas)
+Registro de ventas realizadas
+8. Sistema de Gestión
+Descripción:
+Entidad que agrupa todas las funcionalidades y procesos del sistema que gestionan la información.
+Atributos:
+Base de datos (Clientes, Transacciones, Membresías)
+Módulos (CRM, Inventario, Procesamiento de pagos)
+Reglas de negocio (Promociones, Descuentos, Condiciones de renovación)
+9. Notificación
+Descripción:
+Entidad que maneja las comunicaciones entre el sistema y el cliente.
+Atributos:
+Tipo de notificación (Recordatorio de renovación, Confirmación de compra, Promoción)
+Fecha de envío
+Canal de comunicación (Correo electrónico, SMS, Notificación en la app)
+10. Promoción o Descuento
+Descripción:
+Entidad que representa las ofertas aplicables a las membresías.
+Atributos:
+Código de promoción
+Tipo de descuento (Porcentaje, Valor fijo)
+Fecha de inicio y fin de la promoción
+Aplicabilidad (Tipos de membresía, Clientes específicos)
