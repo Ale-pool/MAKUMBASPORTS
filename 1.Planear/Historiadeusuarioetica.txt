@@ -25,12 +25,8 @@ a diferentes servicios del gimnasio.
 Nuevos Clientes: Personas interesadas en adquirir una nueva membresía.
 Clientes Actuales: Miembros que ya están inscritos y pueden estar interesados en renovar, actualizar o cambiar su plan de membresía.
 
--- Personal del Gimnasio
 
-Asesores de Ventas: Personal encargado de promocionar y vender las membresías, explicando los beneficios, costos y opciones disponibles.
-Recepcionistas: Pueden asistir en el proceso de inscripción y gestionar las consultas iniciales de los clientes.
-
--- Administrador
+-- sistema
 Es el actor que va agestionar la Plataforma de Inscripción en Línea: Software que permite la compra, renovación o actualización de membresías a través de una 
 plataforma digital.
 
@@ -72,15 +68,38 @@ El cliente accede a su cuenta en línea a través del sitio web o la aplicación
 
 6. Escenario Objectivo
 
-Objetivo General:
-Implementar un sistema de información integral 
-que permita gestionar de manera eficiente 
-el proceso completo de venta de membresías,
-fomentar la fidelización de clientes, 
-administrar los productos y servicios del gimnasio, garantizar la transaccionalidad segura y fluida, y facilitar la administración institucional de MAKUMBASPORTS.
+Modelo BPMN Objetivo para el Sistema Transaccional de Membresías de MAKUMBA
+Piscina (Pool): "Gimnasio MAKUMBA"
+Carril (Lane): Cliente
+Actividad: Exploración de Membresías
+Descripción: El cliente navega por el sitio web o la aplicación del gimnasio para explorar las opciones de membresías disponibles.
+Evento Intermedio: Consulta detalles de la membresía seleccionada.
+Actividad: Selección de Membresía
+Descripción: El cliente selecciona la membresía que desea comprar.
+Actividad: Registro e Ingreso de Información Personal
+Descripción: El cliente ingresa o confirma su información personal necesaria para la compra.
+Actividad: Realización de Pago
+Descripción: El cliente elige un método de pago y realiza la transacción.
+Evento Intermedio: Confirmación de la compra.
+Actividad: Recepción de Membresía
+Descripción: El cliente recibe la confirmación de la compra, detalles de la membresía, y acceso (por ejemplo, un código QR o una credencial digital).
+Actividad: Evaluación del Servicio (Opcional)
+Descripción: El cliente puede optar por dejar una reseña o participar en una encuesta de satisfacción.
+Carril (Lane): Sistema de Gestión del Gimnasio
+Actividad: Mostrar Opciones de Membresía
+Descripción: El sistema muestra las diferentes membresías disponibles al cliente.
+Actividad: Validar Información del Cliente
+Descripción: El sistema valida la información personal del cliente ingresada durante la compra.
+Actividad: Procesar Transacción de Pago
+Descripción: El sistema procesa el pago utilizando la plataforma de pagos integrada.
+Evento Intermedio: Verificación del pago (interacción con la pasarela de pago).
+Actividad: Confirmación de Membresía
+Descripción: El sistema confirma la compra de la membresía, actualiza la base de datos y genera un identificador de membresía.
+Actividad: Envío de Notificación
+Descripción: El sistema envía un correo electrónico o SMS al cliente con los detalles de la membresía y el acceso.
 
 
-7. Problematica:
+7. Problematica:  
 
 Para los Clientes:
 
@@ -89,11 +108,11 @@ en relacion a ello la falta de opciones para gestionar su membresía de forma au
 en base a ello tambien se presenta inconvenientes para acceder a información sobre horarios de clases y disponibilidad de entrenadores personales
 en base al tipo de mebresia que pueda acceder el usuario.
 
-Para el Administrador:
+Para el sistema:
 
 Necesidad de un sistema eficiente para gestionar las transacciones y membresías en línea.
 en relacion a la Falta de herramientas para monitorear y analizar el comportamiento de los miembros, en base al tipo de membresia comprada.
-- Falta de visibilidad
+
 
 8. Solución
 
@@ -123,15 +142,29 @@ y actualizar pagos.
 
 11- requerimientos:
 
- El gimnasio makumbasports requiere un sistema de información transaccional que le permita gestionar la compra de membresías de diferentes
-  usuarios que desean acceder a un gimnasio,  estas membresías le permitirá a los usuarios identificar sus necesidades para aso poder acceder 
-  a la membresía de su elección, el sistema requiere gestionar la información relacionada con la ubicación del gimnasio
-   (Globalización del proceso) -(Pais- Departamento - ciudad), gestionar la información relacionada con el proyecto 
-   - empresa (gimnasios, Sedes, Empleados), gestionar la información del cliente(Fidelización- cliente) 
-   ( -consumidor, Tipo Documento - Tipo de genero), a su vez tenemos que gestionar la información del producto (masificación de un producto)
-    (Membresia, Tipo de membresia.) gestionar el proceso de pedido- compra de la membresía  [Control Transaccion] 
- - (Factura, Detalle Factura, Estado Factura).
- 6
+El gimnasio MakumbaSports requiere un sistema de información transaccional avanzado que facilite la gestión integral de la compra de membresías por parte de usuarios interesados en acceder a las diferentes sedes del gimnasio. Este sistema permitirá a los usuarios identificar y seleccionar la membresía que mejor se ajuste a sus necesidades, brindando una experiencia personalizada y eficiente.
+
+Objetivos Principales del Sistema:
+
+Gestión de Membresías Personalizadas:
+
+El sistema permitirá a los usuarios explorar y seleccionar entre diversas opciones de membresía, ajustadas a sus preferencias y necesidades individuales.
+Globalización del Proceso:
+
+El sistema gestionará información relacionada con la ubicación global del gimnasio, abarcando desde el país, departamento y ciudad, hasta cada sede específica de MakumbaSports. Esto facilitará la asignación de membresías a la ubicación adecuada del usuario.
+Gestión de la Información del Proyecto (Empresa):
+
+El sistema centralizará la gestión de la información relacionada con las operaciones de MakumbaSports, incluyendo datos sobre las diferentes sedes, empleados, y la estructura organizacional general.
+Fidelización del Cliente:
+
+Se gestionará información detallada de los clientes, abarcando desde datos personales como tipo de documento y género, hasta su historial de interacción con el gimnasio, con el fin de mejorar la experiencia del usuario y fomentar la fidelización.
+Masificación del Producto:
+
+El sistema facilitará la administración y promoción de los distintos tipos de membresías, permitiendo una gestión efectiva de los productos ofrecidos, y asegurando que estos estén disponibles y sean accesibles para todos los usuarios.
+Control Transaccional y Gestión de Pedidos:
+
+El sistema gestionará todo el proceso de pedido y compra de membresías, desde la emisión de facturas y la generación de detalles de factura, hasta el seguimiento del estado de cada transacción. Esto garantizará un control preciso y una gestión transparente de las operaciones financieras del gimnasio.
+ 
 - Tener encuenta la misión y la visión de nuestro proyecto:
 
 Mision: el gymnasio MAKUMBASPORTS se encarga de generar confincialidad y confianza a los usuarios de sus gimnasio con 
