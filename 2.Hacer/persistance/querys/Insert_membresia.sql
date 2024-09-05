@@ -1,0 +1,6 @@
+INSERT INTO Membresia (IdMembresia, FechaInicio, FechaFin, IdCliente, IdTipoMembresia, Activo, Actualizar) VALUES
+(uuid_generate_v4(), '2024-01-01', INTERVAL '1 month', (SELECT IdCliente FROM Cliente WHERE Nombre = 'Juan' AND Apellido = 'Pérez'), (SELECT IdTipoMembresia FROM TipoMembresia WHERE Descrip_ = 'Mensual'), B'1', NOW()),
+(uuid_generate_v4(), '2024-02-01', INTERVAL '3 months', (SELECT IdCliente FROM Cliente WHERE Nombre = 'Ana' AND Apellido = 'García'), (SELECT IdTipoMembresia FROM TipoMembresia WHERE Descrip_ = 'Trimestral'), B'1', NOW()),
+(uuid_generate_v4(), '2024-03-01', INTERVAL '6 months', (SELECT IdCliente FROM Cliente WHERE Nombre = 'Carlos' AND Apellido = 'Martínez'), (SELECT IdTipoMembresia FROM TipoMembresia WHERE Descrip_ = 'Semestral'), B'1', NOW()),
+(uuid_generate_v4(), '2024-04-01', INTERVAL '1 year', (SELECT IdCliente FROM Cliente WHERE Nombre = 'Lucía' AND Apellido = 'López'), (SELECT IdTipoMembresia FROM TipoMembresia WHERE Descrip_ = 'Anual'), B'1', NOW()),
+(uuid_generate_v4(), '2024-05-01', INTERVAL '1 day', (SELECT IdCliente FROM Cliente WHERE Nombre = 'Mario' AND Apellido = 'Rodríguez'), (SELECT IdTipoMembresia FROM TipoMembresia WHERE Descrip_ = 'Diaria'), B'1', NOW());
