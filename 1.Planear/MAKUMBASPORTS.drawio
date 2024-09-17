@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="24.7.7" pages="6">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.12" pages="6">
   <diagram name="MODELO BOMN-ACTUAL" id="pv0vloq2cyWv5A5IfYAc">
     <mxGraphModel dx="1173" dy="553" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -785,7 +785,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="UICK9_1QtS81VH15r_T4" name="Objectosdealtovalor">
-    <mxGraphModel dx="821" dy="387" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="821" dy="337" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -876,27 +876,27 @@
     </mxGraphModel>
   </diagram>
   <diagram id="Ld80UEbLoulhIgJTfcgW" name="OBJECTOSRELACIONALES">
-    <mxGraphModel dx="1493" dy="613" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1648" dy="337" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="l84TkJciutOWo6CcekxX-3" value="GEOGRAFIA" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
-          <mxGeometry x="80" y="30" width="150" height="360" as="geometry" />
+          <mxGeometry x="-110" y="20" width="150" height="360" as="geometry" />
         </mxCell>
         <mxCell id="l84TkJciutOWo6CcekxX-16" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="l84TkJciutOWo6CcekxX-4" target="l84TkJciutOWo6CcekxX-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="l84TkJciutOWo6CcekxX-4" value="PAIS" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="95" y="75" width="120" height="60" as="geometry" />
+          <mxGeometry x="-95" y="60" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="l84TkJciutOWo6CcekxX-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="l84TkJciutOWo6CcekxX-5" target="l84TkJciutOWo6CcekxX-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="l84TkJciutOWo6CcekxX-5" value="DEPARTAMENTO" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="95" y="180" width="120" height="60" as="geometry" />
+          <mxGeometry x="-95" y="165" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="l84TkJciutOWo6CcekxX-6" value="CIUDAD" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="95" y="280" width="120" height="60" as="geometry" />
+          <mxGeometry x="-95" y="265" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="l84TkJciutOWo6CcekxX-7" value="EMPRESA" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
           <mxGeometry x="264" y="30" width="150" height="360" as="geometry" />
