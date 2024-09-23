@@ -1,39 +1,16 @@
-SELECT
-    P.idpais AS IdPais,
-    P.nombre AS NombrePais,
-    D.iddepartamento AS IdDepartamento,
-    D.nombre AS NombreDepartamento,
-    C.idciudad AS IdCiudad,
-    C.nombre AS NombreCiudad
-FROM pais P
-INNER JOIN departamento D
-    ON P.idpais = D.idpais
-INNER JOIN ciudad C
-    ON D.iddepartamento = C.iddepartamento
-WHERE 
-    P.activo = '1'
-    AND D.activo = '1'
-    AND C.activo = '1';
-
-
+-- Obtener la información de los clientes con sus documentos
+-- Este JOIN relaciona la tabla Cliente con la tabla Documento para obtener información del cliente
+-- y su documento correspondiente.
+-- json array
 
 SELECT 
-    json_agg(
-        json_build_object(
-            'IdPais', P.idpais,
-            'NombrePais', P.nombre,
-            'IdDepartamento', D.iddepartamento,
-            'NombreDepartamento', D.nombre,
-            'IdCiudad', C.idciudad,
-            'NombreCiudad', C.nombre
-        )
-    ) AS result
-FROM pais P
-INNER JOIN departamento D
-    ON P.idpais = D.idpais
-INNER JOIN ciudad C
-    ON D.iddepartamento = C.iddepartamento
-WHERE 
-    P.activo = '1'
-    AND D.activo = '1'
-    AND C.activo = '1';
+    c.Nombre,
+    c.Apellido,
+    d.Numero AS NumeroDocumento,
+    d.FechaExpedicion,
+    d.Lugar
+FROM 
+    Cliente c
+JOIN 
+    Documento d ON c.IdDocumento = d.IdDocumento;
+
