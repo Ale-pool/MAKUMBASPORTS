@@ -9,7 +9,7 @@ const options = {
             description: 'Cliente API'
         }
     },
-    apis: ['./application/object/cliente/*.js']
+    apis: ['./aplication/object/cliente/*.js']
 };
 
 const swaggerSpec = swaggerJSDoc(options);

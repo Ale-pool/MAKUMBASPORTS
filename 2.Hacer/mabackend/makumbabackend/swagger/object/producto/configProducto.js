@@ -9,7 +9,7 @@ const options = {
 			description: 'Producto API'
 		}
 	},
-	apis: ['./application/object/producto/*.js']
+	apis: ['./aplication/object/producto/*.js']
 };
 
 const swaggerSpec = swaggerJSDoc(options);
