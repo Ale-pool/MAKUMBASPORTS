@@ -1,37 +1,101 @@
+// infrastructurecliente.js
+
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const { ModelGeografia, modelgeografia } = require('../../../domain/object/geografia/modelgeografia'); 
+const { ModelCliente, modelcliente } = require('../../../domain/object/cliente/modelCliente')
 
-const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/test?retryWrites=true&w=majority";
-const dbName = 'mi_base_de_datos';
-const collectionName = 'mi_coleccion';
+const uri = "mongodb+srv://dbausername:dbpassword@cluster0.qbo1y.mongodb.net/Makumbasports?retryWrites=true&w=majority";
+const dbName = 'Makumbasports';
+const collectionName = 'Cliente';
 
 
-class InfrastructureGeografia {
+class InfrastructureCliente {
 	
 	constructor(){	
 	}	
-
-	async consultargeografia(respuesta) {
+	// Get para todos los clientes
+	async consultarcliente(respuesta) {
 		const client = new MongoClient(uri);
-		const db = client.db(dbName);
-		const collection = db.collection(collectionName);
-		
-		let query = {};  // Usamos 'let' para poder reasignar si es necesario más adelante.
-		query = { title: '123' };  // Aquí estamos reasignando 'query'.
-		
-		try {
-			const documents = await collection.find(query).toArray();  // Cambié 'result' a 'documents' para evitar la redeclaración.
-			const singleResult = await collection.findOne(query);  // Cambié 'result' a 'singleResult' para evitar la redeclaración.
-			
-			console.log('Documentos encontrados:', documents.length);
-			console.log(singleResult);
-		} catch (error) {
+		try{
+			await client.connect();
+			const db = client.db(dbName);
+			const collection = db.collection(collectionName);
+			const clientes = await collection.find({}).toArray(); // Obtener todos los registros
+			return clientes;
+		}catch(error){
 			console.error(error);
 		} finally {
 			await client.close();
 		}
-		
-		return respuesta;
+	}
+
+	// Get: Obtener un cliente por id en especifico
+	async consultarclienteporid(id, respuesta) {
+		const client = new MongoClient(uri);
+		try{
+			await client.connect();
+			const db = client.db(dbName);
+			const collection = db.collection(collectionName);
+			const cliente = await collection.findOne({ _id: new ObjectId(id)}); // Obtener todos los registros
+			return cliente;
+		}catch(error){
+			console.error(error);
+		} finally {
+			await client.close();
+		}
 	}
 	
+	// Post: Crear un cliente 
+
+	async agregarCliente(cliente) {
+        const client = new MongoClient(uri);
+        try {
+            await client.connect();
+            const db = client.db(dbName);
+            const collection = db.collection(collectionName);
+            const result = await collection.insertOne(cliente);  // Insertar un nuevo documento
+            return result;
+        } catch (error) {
+            console.error(error);
+        } finally {
+            await client.close();
+        }
+    }
+
+	 // PUT: Actualizar un cliente por ID
+	 async actualizarCliente(id, nuevosDatos) {
+        const client = new MongoClient(uri);
+        try {
+            await client.connect();
+            const db = client.db(dbName);
+            const collection = db.collection(collectionName);
+            const result = await collection.updateOne({ _id: new ObjectId(id) }, { $set: nuevosDatos });  // Actualizar documento
+            return result;
+        } catch (error) {
+            console.error(error);
+        } finally {
+            await client.close();
+        }
+    }
+
+	 // DELETE: Eliminar un cliente por ID
+
+	 async eliminarCliente(id) {
+        const client = new MongoClient(uri);
+        try {
+            await client.connect();
+            const db = client.db(dbName);
+            const collection = db.collection(collectionName);
+            const result = await collection.deleteOne({ _id: new ObjectId(id) });  // Eliminar por ID
+            return result;
+        } catch (error) {
+            console.error(error);
+        } finally {
+            await client.close();
+        }
+	 }
+
 }
+
+ 
+ 
+module.exports = { InfrastructureCliente };   

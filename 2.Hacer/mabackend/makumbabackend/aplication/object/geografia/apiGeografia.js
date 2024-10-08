@@ -90,7 +90,7 @@ router.post('/operacionpostgeografia', (req, res) => {
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         aplication/json:
  *           schema:
  *             type: object
  *             properties:

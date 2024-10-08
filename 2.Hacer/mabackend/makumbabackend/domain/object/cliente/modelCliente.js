@@ -2,7 +2,8 @@ const modelcliente = [];
 
 class ModelCliente {
 
-    constructor(idcliente,
+    constructor(
+        idcliente,
         nombrecliente,
         iddocumento,
         descripciondocumento,

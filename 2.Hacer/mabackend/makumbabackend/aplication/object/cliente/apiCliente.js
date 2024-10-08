@@ -3,23 +3,24 @@
 
 
 const express = require('express');
+const { CoreCliente } = require('../../../core/object/cliente/corecliente');
 const { ModelCliente, modelcliente } = require('../../../domain/object/cliente/modelCliente');
 var router = express.Router();  
+const coreCliente = new CoreCliente();
 
 // GET
 /**
  * @swagger
  * /operaciongetcliente:
  *   get:
- *     summary: Obtener todos los ModelCliente
+ *     summary: Get all ModelCliente
  *     responses:
  *       200:
- *         description: Lista de ModelCliente
+ *         description: List of ModelCliente
  */
-router.get("/operaciongetgeografia", (req, res) => {
-    let Respuesta = ["vamos", "a", "hacer", "Prueba", "Get"];
-    res.json(Respuesta);  
-    //res.json(modelcliente);
+router.get("/operaciongetcliente", async (req, res) => {
+    const clientes = await coreCliente.consultarcliente();
+    res.json(clientes);
 });
 
 // Get by Parametro
@@ -27,7 +28,7 @@ router.get("/operaciongetgeografia", (req, res) => {
  * @swagger
  * /operaciongetclienteparametro/{parametro}:
  *   get:
- *     summary: Obtener ModelCliente por Parametro
+ *     summary: Get ModelCliente by Parametro
  *     parameters:
  *       - name: parametro
  *         in: path
@@ -38,12 +39,12 @@ router.get("/operaciongetgeografia", (req, res) => {
  *       200:
  *         description: Un Item de ModelCliente
  */
-router.get('/operaciongetclienteparametro/:parametro', (req, res) => {
-    const Parametro = req.params.parametro;
-    let Respuesta = ["Esto", "Es", "Una", "Prueba", "Get", "Con", "Parametro:", Parametro];
-
-    res.status(201).json(Respuesta);
+router.get('/operaciongetclienteparametro/:id', async (req, res) => {
+    const { id } = req.params;
+    const cliente = await coreCliente.consultarclienteporid(id);
+    res.json(cliente);
 });
+
 
 // POST
 
@@ -51,7 +52,7 @@ router.get('/operaciongetclienteparametro/:parametro', (req, res) => {
  * @swagger
  * /operacionpostcliente:
  *   post:
- *     summary: Crear un ModelCliente
+ *     summary: Create a new ModelCliente
  *     requestBody:
  *       required: true
  *       content:
@@ -80,11 +81,10 @@ router.get('/operaciongetclienteparametro/:parametro', (req, res) => {
  *         description: ModelCliente creado
  */
 
-router.post('/operacionpostcliente', (req, res) => {
-    const { idcliente, nombrecliente, iddocumento, descripciondocumento, idgenero, descripciongenero, idestadocivil, descripcionestadocivil } = req.body;
-    const newModeloCliente = new ModelCliente(idcliente, nombrecliente, iddocumento, descripciondocumento, idgenero, descripciongenero, idestadocivil, descripcionestadocivil);
-    modelcliente.push(newModeloCliente);
-    res.status(201).json(newModeloCliente);
+router.post('/operacionpostcliente', async (req, res) => {
+    const cliente = req.body;
+    const result = await coreCliente.agregarCliente(cliente);
+    res.status(201).json(result);
 });
 
 // PUT
@@ -103,7 +103,7 @@ router.post('/operacionpostcliente', (req, res) => {
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         aplication/json:
  *           schema:
  *             type: object
  *             properties:
@@ -128,19 +128,11 @@ router.post('/operacionpostcliente', (req, res) => {
  *         description: ModelCliente actualizado
  */
 
-router.put('/operacionputcliente/:parametro', (req, res) => {
-    const { idcliente, nombrecliente, iddocumento, descripciondocumento, idgenero, descripciongenero, idestadocivil, descripcionestadocivil } = req.body;
-    const newModeloCliente = new ModelCliente(idcliente, nombrecliente, iddocumento, descripciondocumento, idgenero, descripciongenero, idestadocivil, descripcionestadocivil);
-
-    newModeloCliente.idcliente = idcliente;
-    newModeloCliente.nombrecliente = nombrecliente;
-    newModeloCliente.iddocumento = iddocumento;
-    newModeloCliente.descripciondocumento = descripciondocumento;
-    newModeloCliente.idgenero = idgenero;
-    newModeloCliente.descripciongenero = descripciongenero;
-    newModeloCliente.idestadocivil = idestadocivil;
-    newModeloCliente.descripcionestadocivil = descripcionestadocivil;
-    res.status(200).json(newModeloCliente);
+router.put('/operacionputcliente/:id', async (req, res) => {
+    const { id } = req.params;
+    const nuevosDatos = req.body;
+    const result = await coreCliente.actualizarCliente(id, nuevosDatos);
+    res.json(result);
 });
 
 // DELETE
@@ -161,13 +153,9 @@ router.put('/operacionputcliente/:parametro', (req, res) => {
  *         description: ModelCliente eliminado
  */
 
-router.delete('/operaciondeletecliente/:parametro', (req, res) => {
-    const Parametro = req.params.parametro;
-    let Respuesta = ["Esto", "Es", "Una", "Prueba", "Delete", "Con", "Parametro:", Parametro];
-
-    res.status(200).json({ Message: 'Eliminado: ' + Parametro });
+router.delete('/operaciondeletecliente/:id', async (req, res) => {
+    const { id } = req.params;
+    const result = await coreCliente.eliminarCliente(id);
+    res.json(result);
 });
-
 module.exports = router;
-
-

@@ -1,21 +1,43 @@
-// coregeografia.js
 
-const { ModelCliente, modelcliente } = require('../../../domain/object/geografia/modelgeografia'); 
-const { InfrastructureGeografia } = require('../../../infrastructure/object/geografia/infrastructuregeografia'); 
 
-class CoreGeografia {
+// corecliente.js
+
+const { ModelCliente, modelcliente } = require('../../../domain/object/cliente/modelCliente');
+const { InfrastructureCliente } = require('../../../infrastructure/object/cliente/infrastructurecliente'); 
+
+class CoreCliente {
 	
-	constructor(){	
-	}
 
-	async consultargeografia(respuesta){
-		const infrastructuregeografia = new InfrastructureGeografia();	
-		try {
-            return infrastructuregeografia.consultargeografia(respuesta);			
-		} catch (e) {
-			console.error(e);
-		}
-	}	
+	constructor(){}
+
+
+	async consultarcliente() {
+        const infrastructurecliente = new InfrastructureCliente();
+        return await infrastructurecliente.consultarcliente();
+    }
+
+	async consultarclienteporid(id) {
+        const infrastructurecliente = new InfrastructureCliente();
+        return await infrastructurecliente.consultarclienteporid(id);
+    }
+
+    async agregarCliente(cliente) {
+        const infrastructurecliente = new InfrastructureCliente();
+        return await infrastructurecliente.agregarCliente(cliente);
+    }
+
+    async actualizarCliente(id, nuevosDatos) {
+        const infrastructurecliente = new InfrastructureCliente();
+        return await infrastructurecliente.actualizarCliente(id, nuevosDatos);
+    }
+
+    async eliminarCliente(id) {
+        const infrastructurecliente = new InfrastructureCliente();
+        return await infrastructurecliente.eliminarCliente(id);
+    }
+
+
 }
 
-module.exports = { CoreGeografia };
+module.exports = { CoreCliente};
+

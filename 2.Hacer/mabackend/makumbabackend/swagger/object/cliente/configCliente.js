@@ -1,3 +1,5 @@
+
+// configCliente.js
 const swaggerJSDoc = require('swagger-jsdoc');
 
 const options = {
@@ -9,7 +11,8 @@ const options = {
             description: 'Cliente API'
         }
     },
-    apis: ['./aplication/object/cliente/*.js']
+    
+    apis: ['./aplication/object/cliente/*.js']   
 };
 
 const swaggerSpec = swaggerJSDoc(options);
