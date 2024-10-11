@@ -3,10 +3,10 @@
 
 
 const express = require('express');
+const { ModelCliente, modelcliente } = require('../../../domain/object/cliente/modelCliente.js'); 
 const { CoreCliente } = require('../../../core/object/cliente/corecliente');
-const { ModelCliente, modelcliente } = require('../../../domain/object/cliente/modelCliente');
 var router = express.Router();  
-const coreCliente = new CoreCliente();
+
 
 // GET
 /**
@@ -18,32 +18,106 @@ const coreCliente = new CoreCliente();
  *       200:
  *         description: List of ModelCliente
  */
-router.get("/operaciongetcliente", async (req, res) => {
-    const clientes = await coreCliente.consultarcliente();
-    res.json(clientes);
+router.get('/operaciongetcliente', async (req, res) => {
+	try {
+		const corecliente = new CoreCliente();
+		const respuestacorecliente = await corecliente.consultarcliente();
+		res.status(200).json(respuestacorecliente);
+	} catch (err) {
+		res.status(500).json({ error: err.message });
+	}
 });
 
-// Get by Parametro
+
+// Get by Id
 /**
  * @swagger
- * /operaciongetclienteparametro/{parametro}:
+ * /operaciongetclienteid/{id}:
  *   get:
- *     summary: Get ModelCliente by Parametro
+ *     summary: Get ModelCliente by Id
  *     parameters:
- *       - name: parametro
+ *       - name: id
  *         in: path
  *         required: true
  *         schema:
  *           type: string
  *     responses:
  *       200:
- *         description: Un Item de ModelCliente
+ *         description: A Item of ModelCliente
  */
-router.get('/operaciongetclienteparametro/:id', async (req, res) => {
-    const { id } = req.params;
-    const cliente = await coreCliente.consultarclienteporid(id);
-    res.json(cliente);
+router.get('/operaciongetclienteid/:id', async (req, res) => {
+	try {
+		const { id } = req.params;
+		const corecliente = new CoreCliente();
+		const respuestacorecliente= await corecliente.consultarclienteid(id);
+		res.status(200).json(respuestacorecliente);
+	} catch (err) {
+		res.status(500).json({ error: err.message });
+	}
 });
+
+
+// Get by Nombre
+/**
+ * @swagger
+ * /operaciongetclientenombrecliente/{nombrecliente}:
+ *   get:
+ *     summary: Get ModelCliente by Nombrecliente
+ *     parameters:
+ *       - name: nombrecliente
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: A Item of ModelCliente
+ */
+router.get('/operaciongetclientenombrecliente/:nombrecliente', async (req, res) => {
+	try {
+		const { nombrecliente } = req.params;
+		const corecliente = new CoreCliente();
+		const respuestacorecliente = await corecliente.consultarclientenombrecliente(nombrecliente);
+		res.status(200).json(respuestacorecliente);
+	} catch (err) {
+		res.status(500).json({ error: err.message });
+	}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // POST

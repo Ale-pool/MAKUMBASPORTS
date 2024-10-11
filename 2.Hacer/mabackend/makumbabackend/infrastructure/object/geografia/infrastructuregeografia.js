@@ -1,7 +1,7 @@
 
 // infrastructuregeografia.js
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion} = require('mongodb');
 const { ModelGeografia, modelgeografia } = require('../../../domain/object/geografia/modelgeografia'); 
 
 const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/test?retryWrites=true&w=majority";

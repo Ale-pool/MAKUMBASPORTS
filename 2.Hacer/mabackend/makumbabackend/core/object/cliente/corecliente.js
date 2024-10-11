@@ -10,31 +10,34 @@ class CoreCliente {
 
 	constructor(){}
 
+    
+	async consultarcliente(){
+		const infrastructurecliente = new InfrastructureCliente();	
+		try {
+            return await infrastructurecliente.consultarcliente();			
+		} catch (err) {
+			console.error(err.message);
+		}
+	}
 
-	async consultarcliente() {
-        const infrastructurecliente = new InfrastructureCliente();
-        return await infrastructurecliente.consultarcliente();
-    }
 
-	async consultarclienteporid(id) {
-        const infrastructurecliente = new InfrastructureCliente();
-        return await infrastructurecliente.consultarclienteporid(id);
-    }
+    async consultarclienteid(id){
+		const infrastructurecliente = new InfrastructureCliente();	
+		try {
+            return await infrastructurecliente.consultarclienteid(id);			
+		} catch (err) {
+			console.error(err.message);
+		}
+	}
 
-    async agregarCliente(cliente) {
-        const infrastructurecliente = new InfrastructureCliente();
-        return await infrastructurecliente.agregarCliente(cliente);
-    }
-
-    async actualizarCliente(id, nuevosDatos) {
-        const infrastructurecliente = new InfrastructureCliente();
-        return await infrastructurecliente.actualizarCliente(id, nuevosDatos);
-    }
-
-    async eliminarCliente(id) {
-        const infrastructurecliente = new InfrastructureCliente();
-        return await infrastructurecliente.eliminarCliente(id);
-    }
+    async consultarclientenombrecliente(nombrecliente){
+		const infrastructurecliente = new InfrastructureCliente();	
+		try {
+            return await infrastructurecliente.consultarclientenombrecliente(nombrecliente);			
+		} catch (err) {
+			console.error(err.message);
+		}
+	}
 
 
 }
