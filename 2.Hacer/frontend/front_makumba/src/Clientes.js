@@ -2,6 +2,7 @@
 // src/Clientes.js
 
 import React, { useEffect, useState } from 'react';
+import './Clientes.css'; // Importa el archivo CSS
 
 const Clientes = () => {
   const [clientes, setClientes] = useState([]);
@@ -23,9 +24,9 @@ const Clientes = () => {
   if (loading) return <p>Cargando datos...</p>;
 
   return (
-    <div>
+    <div className='clientes-container'>
       <h2>Clientes</h2>
-      <table>
+      <table className='clientes-table'>
         <thead>
           <tr>
             <th>ID Cliente</th>
