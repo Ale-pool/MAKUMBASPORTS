@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Consulta de Clientes</h1>
-        <Clienteid />
+        <Clientes />
       </header>
     </div>
   );
