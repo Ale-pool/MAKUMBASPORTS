@@ -1,0 +1,92 @@
+/* ConsultaEntidad.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #282c34;
+  color: #ffffff;
+  display: flex;
+  justify-content: flex-start; /* Cambiado para permitir más espacio de desplazamiento */
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh; /* Cambiado a min-height para permitir contenido adicional */
+  margin: 0;
+  padding: 20px; /* Añadido para espacio alrededor del contenido */
+  overflow-y: auto; /* Habilita el desplazamiento vertical en la página */
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+button {
+  margin: 0.5em;
+  padding: 0.5em 1em;
+  background-color: #61dafb;
+  border: none;
+  color: #282c34;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #21a1f1;
+}
+
+input[type="text"] {
+  margin: 0.5em;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+}
+
+table {
+  width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+  border-collapse: collapse;
+  margin-top: 1em;
+  max-height: 400px; /* Limita la altura de la tabla para permitir el desplazamiento */
+  overflow-y: auto; /* Habilita desplazamiento dentro de la tabla */
+  display: block; /* Requerido para overflow en tablas */
+}
+
+th, td {
+  padding: 0.75em;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+th {
+  background-color: #444;
+  color: #61dafb;
+  position: sticky;
+  top: 0; /* Hace que los encabezados de la tabla se mantengan fijos al hacer scroll */
+}
+
+td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+td.detalle {
+  max-width: 100px; /* Ajusta el ancho según necesites */
+  word-break: break-word;
+  white-space: normal;
+}
+
+tr:nth-child(even) {
+  background-color: #333;
+}
+
+tr:hover {
+  background-color: #555;
+}
+
+.error {
+  color: red;
+  margin-top: 1em;
+  text-align: center;
+}

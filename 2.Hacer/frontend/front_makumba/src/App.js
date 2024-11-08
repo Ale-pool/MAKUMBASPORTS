@@ -1,20 +1,25 @@
-
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Clientes from './Clientes'
-import Clienteid from './Clienteid'
-import Clientenombre from './Clientenombre'
+import ConsultaEntidad from './ConsultaEntidad';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Consulta de Clientes</h1>
-        <Clientes />
+        <h1>Consulta de Empleado, Gimnasio y Sede</h1>
+        
+        <h2>Consulta de Empleados</h2>
+        <ConsultaEntidad entidad="empleado" />
+
+        <h2>Consulta de Gimnasios</h2>
+        <ConsultaEntidad entidad="gimnasio" />
+
+        <h2>Consulta de Sedes</h2>
+        <ConsultaEntidad entidad="sede" />
       </header>
     </div>
   );
 }
 
 export default App;
+

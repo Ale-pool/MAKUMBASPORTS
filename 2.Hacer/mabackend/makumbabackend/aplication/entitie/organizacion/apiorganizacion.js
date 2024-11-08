@@ -111,11 +111,51 @@ router.get('/operaciongetgimnasionombre/:nombregimnasio', async (req, res) => {
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/ModelGimnasio'
+ *             type: object
+ *             properties:
+ *               idciudad:
+ *                 type: string
+ *                 description: ID de la ciudad
+ *               nombre:
+ *                 type: string
+ *                 description: Nombre del gimnasio
+ *               tipo:
+ *                 type: string
+ *                 description: Tipo de gimnasio
+ *               nit:
+ *                 type: string
+ *                 description: Número de Identificación Tributaria (NIT)
+ *               fechaapertura:
+ *                 type: string
+ *                 format: date
+ *                 description: Fecha de apertura
+ *               activo:
+ *                 type: boolean
+ *                 description: Estado activo del gimnasio
+ *               actualizar:
+ *                 type: boolean
+ *                 description: Si se permite la actualización
+ *               idsede:
+ *                 type: string
+ *                 description: ID de la sede
+ *               idempleado:
+ *                 type: string
+ *                 description: ID del empleado encargado
  *     responses:
  *       201:
- *         description: Created ModelGimnasio
+ *         description: Gimnasio creado con éxito
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Gimnasio creado con éxito
+ *                 data:
+ *                   $ref: '#/components/schemas/ModelGimnasio'
  */
+
 router.post('/operacionpostgimnasio', async (req, res) => {
 	try {
 		const coregimnasio = new CoreGimnasio();
@@ -141,16 +181,48 @@ router.post('/operacionpostgimnasio', async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           description: ID del gimnasio a actualizar
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/ModelGimnasio'
+ *             type: object
+ *             properties:
+ *               nombre:
+ *                 type: string
+ *                 description: Nombre actualizado del gimnasio
+ *               tipo:
+ *                 type: string
+ *                 description: Tipo actualizado del gimnasio
+ *               nit:
+ *                 type: string
+ *                 description: NIT actualizado
+ *               fechaapertura:
+ *                 type: string
+ *                 format: date
+ *                 description: Fecha de apertura actualizada
+ *               activo:
+ *                 type: boolean
+ *                 description: Estado activo actualizado del gimnasio
+ *               idsede:
+ *                 type: string
+ *                 description: ID actualizado de la sede
  *     responses:
  *       200:
- *         description: Updated ModelGimnasio
+ *         description: Gimnasio actualizado con éxito
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Gimnasio actualizado con éxito
+ *                 data:
+ *                   $ref: '#/components/schemas/ModelGimnasio'
  */
+
 router.put('/operacionputgimnasio/:id', async (req, res) => {
 	try {
 		const { id } = req.params;
@@ -177,10 +249,20 @@ router.put('/operacionputgimnasio/:id', async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           description: ID del gimnasio a eliminar
  *     responses:
  *       200:
- *         description: Deleted ModelGimnasio
+ *         description: Gimnasio eliminado con éxito
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Gimnasio eliminado con éxito
  */
+
 router.delete('/operaciondeletegimnasio/:id', async (req, res) => {
 	try {
 		const { id } = req.params;
@@ -278,27 +360,27 @@ router.get('/operaciongetsedenombre/:nombresede', async (req, res) => {
 // POST
 /**
  * @swagger
- * /operacionpostgimnasio:
+ * /operacionpostsede:
  *   post:
  *     tags:
  *       - Sede
- *     summary: Create a new ModelGimnasio
+ *     summary: Create a new ModelSede
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/ModelGimnasio'
+ *             $ref: '#/components/schemas/ModelSede'
  *     responses:
  *       201:
- *         description: Created ModelGimnasio
+ *         description: Created ModelSede
  */
-router.post('/operacionpostgimnasio', async (req, res) => {
+router.post('/operacionpostsede', async (req, res) => {
 	try {
-		const coregimnasio = new CoreGimnasio();
-		const nuevoGimnasio = req.body;
-		const respuestaCoreGimnasio = await coregimnasio.ingresargimnasio(nuevoGimnasio);
-		res.status(201).json(respuestaCoreGimnasio);
+		const coresede = new CoreSede();
+		const nuevaSede = req.body;
+		const respuestaCoreSede = await coresede.ingresarsede(nuevaSede);
+		res.status(201).json(respuestaCoreSede);
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}
@@ -307,11 +389,11 @@ router.post('/operacionpostgimnasio', async (req, res) => {
 // PUT
 /**
  * @swagger
- * /operacionputgimnasio/{id}:
+ * /operacionputsede/{id}:
  *   put:
  *     tags:
  *       - Sede
- *     summary: Update an existing ModelGimnasio by Id
+ *     summary: Update an existing ModelSede by Id
  *     parameters:
  *       - name: id
  *         in: path
@@ -323,18 +405,18 @@ router.post('/operacionpostgimnasio', async (req, res) => {
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/ModelGimnasio'
+ *             $ref: '#/components/schemas/ModelSede'
  *     responses:
  *       200:
- *         description: Updated ModelGimnasio
+ *         description: Updated ModelSede
  */
-router.put('/operacionputgimnasio/:id', async (req, res) => {
+router.put('/operacionputsede/:id', async (req, res) => {
 	try {
 		const { id } = req.params;
 		const datosActualizados = req.body;
-		const coregimnasio = new CoreGimnasio();
-		const respuestaCoreGimnasio = await coregimnasio.modificargimnasio(id, datosActualizados);
-		res.status(200).json(respuestaCoreGimnasio);
+		const coresede = new CoreSede();
+		const respuestaCoreSede = await coresede.modificarsede(id, datosActualizados);
+		res.status(200).json(respuestaCoreSede);
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}
@@ -343,11 +425,11 @@ router.put('/operacionputgimnasio/:id', async (req, res) => {
 // DELETE
 /**
  * @swagger
- * /operaciondeletegimnasio/{id}:
+ * /operaciondeletesede/{id}:
  *   delete:
  *     tags:
  *       - Sede
- *     summary: Delete a ModelGimnasio by Id
+ *     summary: Delete a ModelSede by Id
  *     parameters:
  *       - name: id
  *         in: path
@@ -356,14 +438,14 @@ router.put('/operacionputgimnasio/:id', async (req, res) => {
  *           type: string
  *     responses:
  *       200:
- *         description: Deleted ModelGimnasio
+ *         description: Deleted ModelSede
  */
-router.delete('/operaciondeletegimnasio/:id', async (req, res) => {
+router.delete('/operaciondeletesede/:id', async (req, res) => {
 	try {
 		const { id } = req.params;
-		const coregimnasio = new CoreGimnasio();
-		const respuestaCoreGimnasio = await coregimnasio.eliminargimnasio(id);
-		res.status(200).json(respuestaCoreGimnasio);
+		const coresede = new CoreSede();
+		const respuestaCoreSede = await coresede.eliminarsede(id);
+		res.status(200).json(respuestaCoreSede);
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}
@@ -452,31 +534,30 @@ router.get('/operaciongetempleadonombre/:nombreempleado', async (req, res) => {
 });
 
 
-
 // POST
 /**
  * @swagger
- * /operacionpostgimnasio:
+ * /operacionpostempleado:
  *   post:
  *     tags:
- *       - Gimnasio
- *     summary: Create a new ModelGimnasio
+ *       - Empleado
+ *     summary: Create a new ModelEmpleado
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/ModelGimnasio'
+ *             $ref: '#/components/schemas/ModelEmpleado'
  *     responses:
  *       201:
- *         description: Created ModelGimnasio
+ *         description: Created ModelEmpleado
  */
-router.post('/operacionpostgimnasio', async (req, res) => {
+router.post('/operacionpostempleado', async (req, res) => {
 	try {
-		const coregimnasio = new CoreGimnasio();
-		const nuevoGimnasio = req.body;
-		const respuestaCoreGimnasio = await coregimnasio.ingresargimnasio(nuevoGimnasio);
-		res.status(201).json(respuestaCoreGimnasio);
+		const coreempleado = new CoreEmpleado();
+		const nuevoEmpleado = req.body;
+		const respuestaCoreEmpleado = await coreempleado.ingresarempleado(nuevoEmpleado);
+		res.status(201).json(respuestaCoreEmpleado);
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}
@@ -485,11 +566,11 @@ router.post('/operacionpostgimnasio', async (req, res) => {
 // PUT
 /**
  * @swagger
- * /operacionputgimnasio/{id}:
+ * /operacionputempleado/{id}:
  *   put:
  *     tags:
- *       - Gimnasio
- *     summary: Update an existing ModelGimnasio by Id
+ *       - Empleado
+ *     summary: Update an existing ModelEmpleado by Id
  *     parameters:
  *       - name: id
  *         in: path
@@ -501,18 +582,18 @@ router.post('/operacionpostgimnasio', async (req, res) => {
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/ModelGimnasio'
+ *             $ref: '#/components/schemas/ModelEmpleado'
  *     responses:
  *       200:
- *         description: Updated ModelGimnasio
+ *         description: Updated ModelEmpleado
  */
-router.put('/operacionputgimnasio/:id', async (req, res) => {
+router.put('/operacionputempleado/:id', async (req, res) => {
 	try {
 		const { id } = req.params;
 		const datosActualizados = req.body;
-		const coregimnasio = new CoreGimnasio();
-		const respuestaCoreGimnasio = await coregimnasio.modificargimnasio(id, datosActualizados);
-		res.status(200).json(respuestaCoreGimnasio);
+		const coreempleado = new CoreEmpleado();
+		const respuestaCoreEmpleado = await coreempleado.modificarempleado(id, datosActualizados);
+		res.status(200).json(respuestaCoreEmpleado);
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}
@@ -521,11 +602,11 @@ router.put('/operacionputgimnasio/:id', async (req, res) => {
 // DELETE
 /**
  * @swagger
- * /operaciondeletegimnasio/{id}:
+ * /operaciondeleteempleado/{id}:
  *   delete:
  *     tags:
- *       - Gimnasio
- *     summary: Delete a ModelGimnasio by Id
+ *       - Empleado
+ *     summary: Delete a ModelEmpleado by Id
  *     parameters:
  *       - name: id
  *         in: path
@@ -534,18 +615,20 @@ router.put('/operacionputgimnasio/:id', async (req, res) => {
  *           type: string
  *     responses:
  *       200:
- *         description: Deleted ModelGimnasio
+ *         description: Deleted ModelEmpleado
  */
-router.delete('/operaciondeletegimnasio/:id', async (req, res) => {
+router.delete('/operaciondeleteempleado/:id', async (req, res) => {
 	try {
 		const { id } = req.params;
-		const coregimnasio = new CoreGimnasio();
-		const respuestaCoreGimnasio = await coregimnasio.eliminargimnasio(id);
-		res.status(200).json(respuestaCoreGimnasio);
+		const coreempleado = new CoreEmpleado();
+		const respuestaCoreEmpleado = await coreempleado.eliminarempleado(id);
+		res.status(200).json(respuestaCoreEmpleado);
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}
 });
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 module.exports = router;
